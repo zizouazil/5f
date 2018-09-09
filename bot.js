@@ -880,10 +880,10 @@ adminbot.on('message', message => {
 adminbot.on('message', message => {
     
   if (message.author.x5bz) return;
-  if (!message.content.startsWith(prefixnew)) return;
+  if (!message.content.startsWith(prefixnewnew)) return;
 
   let command = message.content.split(" ")[0];
-  command = command.slice(prefixnew.length);
+  command = command.slice(prefixnewnew.length);
 
   let args = message.content.split(" ").slice(1);
 
@@ -920,7 +920,7 @@ adminbot.on('message', message => {
 
 
 adminbot.on('message', ping => {
-    if(ping.content === prefixnew + 'ping') {
+    if(ping.content === prefixnewnew + 'ping') {
       ping.channel.send('Pong :frog: ..').then(m => m.edit(`Ping is ${adminbot.ping}`), 5000);
     }
 });
@@ -930,7 +930,7 @@ adminbot.login(process.env.TOKENTWO);
 
 const BroadcastB = new Discord.Client();
 const BroadcastP = '$';
-BroadcastB.login(process.env.THREETOKEN)
+BroadcastB.login(process.env.JUIUHI)
 
 
 
