@@ -886,7 +886,7 @@ adminbot.on('message', message => {
 message.channel.send("**:timer: | لأختيار اللون فقط قم بكتابة `لون` ورقم اللون المتواجد في `الصورة`.**", {
   file: oco
     
-    
+}
     }
 });
 
