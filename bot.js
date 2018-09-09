@@ -876,7 +876,7 @@ adminbot.on('message', message => {
 }
 });
 
-var oco = 'https://cdn.pg.sa/TjOVeRF1hB.jpg';
+var oco = 'https://cdn.discordapp.com/attachments/488439026983108628/488444789730312212/colors.png';
 
 adminbot.on('message', message => {
     // If the message is '!rip'
