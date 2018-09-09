@@ -924,19 +924,32 @@ setInterval(function(){})
 }
 });
 
-  adminbot.on("message", message => {
- 
-            var args = message.content.substring(adminbot.length).split(" ");
-            if (message.content.startsWith(adminbot + "clear") || message.content.startsWith('امسح')) {
+adminbot.on('message', message => {
+     if(message.content.startsWith(prefixnewnew + "clear")) {
+         var args = message.content.split(" ").slice(1);
     if (!message.member.roles.find(role => role.name === "' Staff")) return message.channel.send('**Disable..**').then(msg => msg.delete(5000));
-        var msg;
-        msg = parseInt();
-      
-      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
-	    
-  })
-  }
-     
+  if (!args[0]) return message.channel.send('اكتب عدد الرسائل المراد مسحها.');
+
+  message.channel.bulkDelete(args[0]).then(() => {
+    const embed = new Discord.RichEmbed()
+      .setColor(0xF16104)
+      .setDescription(`Cleared ${args[0]} messages.`);
+    message.channel.send({ embed });
+
+    const actionlog = message.guild.channels.find('name', 'other');
+
+    if (!actionlog) return message.channel.send('Can\'t find action-log channel. Are you sure that this channel exists and I have permission to view it? **CANNOT POST LOG.**');
+    const embedlog = new Discord.RichEmbed()
+      .setDescription('~Purge~')
+      .setColor(0xF16104)
+      .addField('Purged By', `<@${message.author.id}> with ID ${message.author.id}`)
+      .addField('Purged in', message.channel)
+      .addField('Time', message.createdAt);
+    actionlog.send(embedlog);
+   
+  });
+};
+
 });
   
 adminbot.on('message', message => {
