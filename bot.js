@@ -934,7 +934,7 @@ setInterval(function(){})
       
       message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
 	    
-  }
+  })
   }
      
 });
