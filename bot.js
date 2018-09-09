@@ -1053,5 +1053,5 @@ bo7.on('message', msg => {
 
 })
 
-bo7.login(process.env.BO7)
+bo7.login(process.env.BO7TT)
 
