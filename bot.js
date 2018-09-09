@@ -705,7 +705,7 @@ client.login(token);
 
 //ADMIN
 
-const adminbot = new Discord.adminbot();
+const adminbot = new Discord.Client();
 const prefixnewnew = '!'; 
 
 adminbot.on('ready', () => {
@@ -928,7 +928,7 @@ adminbot.on('message', ping => {
 adminbot.login(process.env.TOKENTWO);
 
 
-const BroadcastB = new Discord.BroadcastB()
+const BroadcastB = new Discord.Client();
 const BroadcastP = '$';
 BroadcastB.login(process.env.THREETOKEN)
 
