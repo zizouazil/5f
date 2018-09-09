@@ -926,3 +926,100 @@ adminbot.on('message', ping => {
 });
 
 adminbot.login(process.env.TOKENTWO);
+
+
+const BroadcastB = new Discord.BroadcastB()
+const BroadcastP = '$';
+BroadcastB.login(process.env.THREETOKEN)
+
+
+
+
+BroadcastB.on('ready', () => {
+    console.log(`logged ass ${BroadcastB.user.tag}, \' Guilds: ${BroadcastB.guilds.size}...`);
+    BroadcastB.user.setActivity('Dynasty Server', {type: 'WATCHING'});
+});
+
+
+
+
+
+
+BroadcastB.on('message', message => {
+    if(!message.channel.guild) return;
+ if(message.content.startsWith(BroadcastP + 'bc')) {
+ if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
+ if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
+ let args = message.content.split(" ").join(" ").slice(2 + BroadcastP.length);
+ let BcList = new Discord.RichEmbed()
+ .setThumbnail(message.author.avatarURL)
+ .setAuthor(`محتوى الرساله ${args}`)
+.setDescription(`هل أنت متأكد من أرسالك للبرودكاست؟`)
+ if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(BcList).then(msg => {
+ msg.react('✏')
+ .then(() => msg.react('✏'))
+  
+ let NormalBcFilter = (reaction, user) => reaction.emoji.name === '✏' && user.id === message.author.id;
+  
+ let NormalBc = msg.createReactionCollector(NormalBcFilter, { time: 60000 });
+ 
+ 
+ NormalBc.on("collect", r => {
+   message.channel.send(`:ballot_box_with_check: **تم أرسال البرودكاست بنجاح**`);
+let i = "0";
+ message.guild.members.forEach(m => {
+ let NormalRep = args.replace('[server]' ,message.guild.name).replace('[user]', m).replace('[by]', `${message.author}`)
+ m.send(NormalRep).then(ms => {
+       i = i + 1;
+ }).catch(err => {
+      i = i - 1;
+ })
+ })
+ let nj7 = i;
+ let fshl = msg.guild.members.size -  i;
+      var results = `**Results | النتائج
+  
+  نجاح` + ' `' + `${nj7}` + '`' + `
+  فشل` + ' `' + `${fshl}` + '`**';
+  message.channel.send(results);
+ })
+ })
+ }
+ });
+
+
+
+BroadcastB.on('message', message => {
+
+    const devs = ['449313863494664214', '228401267263668224'];
+
+    let argresult = message.content.split(` `).slice(1).join(' ');
+    if (message.content.startsWith(BroadcastP + 'setStreaming')) {
+      if (!devs.includes(message.author.id)) return;
+      message.delete();
+      BroadcastB.user.setGame(argresult, 'https://twitch.tv/BetterStore');
+
+    } else if(message.content.startsWith(BroadcastP + 'setWatching')) {
+        BroadcastB.user.setActivity(argresult,{type: 'WATCHING'});
+
+      } else if(message.content.startsWith(BroadcastP + 'setListening')) {
+        BroadcastB.user.setActivity(argresult,{type: 'LISTENING'});
+
+      } else if(message.content.startsWith(BroadcastP + 'setPlaying')) {
+        BroadcastB.user.setActivity(argresult,{type: 'PLAYING'});
+
+      } else if(message.content.startsWith(BroadcastP + 'setName')) {
+        BroadcastB.user.setUsername(argresult);
+
+      } else if(message.content.startsWith(BroadcastP + 'setAvatar')) {
+        BroadcastB.user.setAvatar(argresult);
+
+
+      } else if(message.content.startsWith(BroadcastP + 'setStatus')) {
+        if(!argresult) return message.channel.send('`online`, `DND(Do not Distrub),` `idle`, `invisible(Offline)` :notes: أختر أحد الحالات');
+        BroadcastB.user.setStatus(argresult);
+
+
+    }
+
+  });
