@@ -876,15 +876,20 @@ adminbot.on('message', message => {
 }
 });
 
+var oco = 'https://cdn.pg.sa/TjOVeRF1hB.jpg';
+
 adminbot.on('message', message => {
     // If the message is '!rip'
-    if (message.content === 'االوان') {
+    if (message.content === 'الوان') {
         // Create the attachment using Attachment
-        const attachment = new Attachment('https://cdn.pg.sa/TjOVeRF1hB.jpg');
         // Send the attachment in the message channel with a content
-        message.channel.send(`لأختيار اللون فقط أكتب لون ورقم اللون المتواجد في الصورة. $`, attachment);
+message.channel.send("**:timer: | لأختيار اللون فقط قم بكتابة `لون` ورقم اللون المتواجد في `الصورة`.**", {
+  file: oco
+    
+    
     }
 });
+
 
 
 adminbot.on('message', message => {
