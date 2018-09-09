@@ -1023,3 +1023,35 @@ BroadcastB.on('message', message => {
     }
 
   });
+
+
+//bo7
+
+
+const bo7 = new Discord.Client();
+const bo7Room = '482710406213926912'; // Room ID
+const photo = 'https://cdn.discordapp.com/attachments/488411497794502718/488414408737947658/space.png'; // Photo Link
+
+
+bo7.on('ready', ( ) => {
+  console.log('Bo7 Bot is ready!');
+})
+
+bo7.on('message', msg => {
+  if(msg.author.bot) return;
+
+  if(msg.channel.id != bo7Room) return;
+
+  if(msg.content.length >= 10) {
+    msg.channel.send(new Discord.Attachment(photo))
+  } else {
+    msg.reply('لا يمكنك كتابة اقل من 10 حرف .').then(m => {
+      msg.delete();
+      m.delete(3000);
+    })
+  }
+
+})
+
+bo7.login(process.env.BO7)
+
