@@ -839,10 +839,10 @@ if(!message.guild.member(adminbot.user).hasPermission("MANAGE_ROLES")) return me
 
 adminbot.on('message', message => {
   if (message.author.x5bz) return;
-  if (!message.content.startsWith(prefixnew)) return;
+  if (!message.content.startsWith(prefixnewnew)) return;
 
   let command = message.content.split(" ")[0];
-  command = command.slice(prefixnew.length);
+  command = command.slice(prefixnewnew.length);
 
   let args = message.content.split(" ").slice(1);
 
