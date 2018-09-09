@@ -900,6 +900,8 @@ if (message.channel.id !== "488421121335492648") return;
 .setFooter('Requested by '+message.author.username, message.author.avatarURL)
 .setDescription(`**لايوجد لون بهذا الرقم. ** ❌ `)
 .setColor(`ff0000`)
+     .setTitle('Dynasty Server')
+
 
 if(!isNaN(args) && args.length > 0)
 
@@ -910,8 +912,8 @@ if(!isNaN(args) && args.length > 0)
 const embed = new Discord.RichEmbed()
               
 .setFooter('Requested by '+message.author.username, message.author.avatarURL)
-.setDescription(`**Color Changed Successfully** ✅ `)
-
+.setDescription(`**تم تغيير اللون بنجاح, $** ✅ `)
+.setTitle('Dynasty Server')
 .setColor(`${a.hexColor}`)
 message.channel.sendEmbed(embed);
     if (!args) return;
