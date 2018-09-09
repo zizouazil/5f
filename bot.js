@@ -876,7 +876,69 @@ adminbot.on('message', message => {
 }
 });
 
+adminbot.on('message', message => {
+    // If the message is '!rip'
+    if (message.content === 'االوان') {
+        // Create the attachment using Attachment
+        const attachment = new Attachment('https://cdn.pg.sa/TjOVeRF1hB.jpg');
+        // Send the attachment in the message channel with a content
+        message.channel.send(`لأختيار اللون فقط أكتب لون ورقم اللون المتواجد في الصورة. $`, attachment);
+    }
+});
 
+
+adminbot.on('message', message => {
+    let args = message.content.split(' ').slice(1);
+if(message.content.split(' ')[0] == 'لون'){
+if (message.channel.id !== "478388106140057610") return;
+     const embedd = new Discord.RichEmbed()
+.setFooter('Requested by '+message.author.username, message.author.avatarURL)
+.setDescription(`**لايوجد لون بهذا الرقم. ** ❌ `)
+.setColor(`ff0000`)
+
+if(!isNaN(args) && args.length > 0)
+
+
+ var a = message.guild.roles.find("name",`${args}`)
+          if(!a)return;
+          if (a.name > 250 || a.name < 1) return;
+const embed = new Discord.RichEmbed()
+              
+.setFooter('Requested by '+message.author.username, message.author.avatarURL)
+.setDescription(`**Color Changed Successfully** ✅ `)
+
+.setColor(`${a.hexColor}`)
+message.channel.sendEmbed(embed);
+    if (!args) return;
+setInterval(function(){})
+            let count = 0;
+            let ecount = 0;
+  for(let x = 1; x < 201; x++){
+     
+      message.member.removeRole(message.guild.roles.find("name",`${x}`))
+    
+      }
+          message.member.addRole(message.guild.roles.find("name",`${args}`));
+  
+      
+}
+});
+
+  adminbot.on("message", message => {
+ 
+            var args = message.content.substring(adminbot.length).split(" ");
+            if (message.content.startsWith(adminbot + "clear") || message.content.startsWith('امسح')) {
+    if (!message.member.roles.find(role => role.name === "' Staff")) return message.channel.send('**Disable..**').then(msg => msg.delete(5000));
+        var msg;
+        msg = parseInt();
+      
+      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+	    
+  }
+  }
+     
+});
+  
 adminbot.on('message', message => {
     
   if (message.author.x5bz) return;
