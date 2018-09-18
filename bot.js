@@ -7,7 +7,7 @@ const config = process.env.CONFIG
 
 const prefix = process.env.PREFIX
 const token = process.env.TOKEN
-const ids = process.env.IDS || ["449313863494664214", "228401267263668224", '473452211641516032']
+const ids = process.env.IDS || ["449313863494664214", "228401267263668224", '327259159349297162']
 const private = process.env.PRIVATE
 const regDate = process.env.REGDATE
 const sub = process.env.SUB
@@ -627,7 +627,7 @@ client.on('message', message => {
 
 //admin
 
-const devs = ["449313863494664214", "228401267263668224", "473452211641516032"];
+const devs = ["449313863494664214", "228401267263668224", "327259159349297162"];
 
 
 
