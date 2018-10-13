@@ -13,7 +13,7 @@ const regDate = process.env.REGDATE
 const sub = process.env.SUB
 
 const client = new Discord.Client({ disableEveryone: true});
-const PREFIX = 'R';
+const PREFIX = 'S';
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
