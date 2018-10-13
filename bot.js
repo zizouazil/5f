@@ -4,7 +4,6 @@ const moment = require('moment');
 const dateformat = require('dateformat');
 const ms = require('parse-ms')
 const config = process.env.CONFIG
-const PREFIX = 'S';
 
 
 
@@ -20,6 +19,8 @@ const client = new Discord.Client({ disableEveryone: true});
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
+
+const PREFIX = 'S';
 
 
 let cmds = {
