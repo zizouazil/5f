@@ -4,6 +4,9 @@ const moment = require('moment');
 const dateformat = require('dateformat');
 const ms = require('parse-ms')
 const config = process.env.CONFIG
+const PREFIX = 'S';
+
+
 
 const prefix = process.env.PREFIX
 const token = process.env.TOKEN
@@ -51,7 +54,6 @@ const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
 const YouTube = require('simple-youtube-api');
 const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
-const PREFIX = 'S';
 
 
 let active = new Map();
@@ -691,12 +693,12 @@ client.on('message', message => {
   ` + '`' + prefix + 'setAvatar` - **لتغيير صورة البوت**' + `
   ` + '`' + prefix + 'setStatus` - **لتغيير حالة البوت**' + `
  
- Customer: <@473452211641516032>
  
- **جميع الحقوق محفوظة ألى متجر بتر ستور
- BetterStore..**
  
-https://discord.gg/wKc5NAZ`
+ *** By : Mr.SOKA ***
+ 
+ 
+ https://discord.gg/ArGwWfH`
   if(message.content === prefix + 'help') {
 	  message.react('🎼');
     message.author.send(helplist);
