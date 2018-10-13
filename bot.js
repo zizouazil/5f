@@ -7,15 +7,17 @@ const config = process.env.CONFIG
 
 const prefix = process.env.PREFIX
 const token = process.env.TOKEN
-const ids = process.env.IDS || ["449313863494664214", "228401267263668224", '327259159349297162']
+const ids = process.env.IDS || ["389100615432929290"]
 const private = process.env.PRIVATE
 const regDate = process.env.REGDATE
 const sub = process.env.SUB
 
 const client = new Discord.Client({ disableEveryone: true});
+const PREFIX = 'R';
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
+
 
 let cmds = {
   play: { cmd: 'play', a: ['p'] },
@@ -57,8 +59,7 @@ client.on('warn', console.warn);
 client.on('error', console.error);
 
 client.on('ready', () => {
-    console.log(`Created By: MohmaedAlhassny`);
-    console.log(`Developed By: ! Abdulrhman with ♥`);
+    console.log(`Created By: Mr.SOKA`);
     console.log(`Customer Number 1`);
     console.log(`Guilds: ${client.guilds.size}`);
     console.log(`Users: ${client.users.size}`);
